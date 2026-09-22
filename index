@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-ChatNote — Comment paragraphs, send once</title>
+<meta name="description" content="AI-ChatNote is a free browser extension that lets you add inline comments to paragraphs or bullet points in your AI chats, then apply them all at once.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf9f5;
+    --ink: #1c1b19;
+    --ink-soft: #55524c;
+    --rule: #ded9cd;
+    --mark: #ffd84d;
+    --mark-ink: #1c1b19;
+    --link: #2f5d55;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  header {
+    margin-bottom: 2.2rem;
+  }
+
+  .mark {
+    display: inline;
+    background: linear-gradient(transparent 58%, var(--mark) 58%);
+    color: var(--mark-ink);
+    padding: 0 0.05em;
+  }
+
+  h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.12;
+    margin: 0 0 0.55rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 34ch;
+  }
+
+  .lede {
+    font-size: 1.05rem;
+    max-width: 62ch;
+    margin: 1.6rem 0 0;
+  }
+
+  .platforms {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0.85rem 0 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1.9rem 0 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.15rem;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid var(--ink);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn-primary:hover {
+    background: var(--link);
+    border-color: var(--link);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn svg { flex-shrink: 0; }
+
+  section {
+    margin-top: 3rem;
+  }
+
+  .media-label {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+  }
+
+  video, img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  footer p { margin: 0.35rem 0; }
+
+  footer a { color: var(--link); }
+
+  .privacy {
+    max-width: 58ch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1><span class="mark">AI-ChatNote</span></h1>
+    <p class="tagline">Comment on individual paragraphs in AI chat responses before sending your next message.</p>
+  </header>
+
+  <p class="lede">
+    AI-ChatNote is a free browser extension for Chrome and Firefox that lets you
+    add inline comments to individual paragraphs or bullet points, then process
+    them all at once for faster, better results. Hover to highlight a passage,
+    click to add a comment, and move on — hit Return and every comment is applied
+    in a single pass.
+  </p>
+
+  <p class="platforms">Works with OpenAI, Anthropic, Google AI and X.</p>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/ai-chatnote/kcpdcndocfoafbdphobjacdnofpmlmac">
+      Get it for Chrome
+    </a>
+    <a class="btn btn-secondary" href="https://addons.mozilla.org/de/firefox/addon/chatnote/">
+      Get it for Firefox
+    </a>
+  </div>
+
+  <section>
+    <p class="media-label">See it in action</p>
+    <video src="demo.mp4" controls preload="metadata" playsinline poster="screenshot.png">
+      Your browser doesn't support inline video. <a href="demo.mp4">Download the clip</a> instead.
+    </video>
+  </section>
+
+  <section>
+    <p class="media-label">How it looks</p>
+    <img src="screenshot.png" alt="AI-ChatNote panel showing paragraph comments in an AI chat interface" loading="lazy">
+  </section>
+
+  <footer>
+    <p class="privacy">All data stays local to your browser. AI-ChatNote only runs on the supported chat URLs listed in its manifest and never transmits anything to external servers.</p>
+    <p>Feedback: <a href="mailto:ChatNote@mail.de">ChatNote@mail.de</a></p>
+  </footer>
+
+</main>
+</body>
+</html>
